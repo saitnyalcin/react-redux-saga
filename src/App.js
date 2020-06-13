@@ -27,7 +27,7 @@ class App extends Component {
             <p>Error, try again</p>
           ) : (
             <p>
-              <img className="dog-img" src={this.props.url} />
+              <img className="dog-img" src={this.props.url} alt="" />
             </p>
           )}
         </div>

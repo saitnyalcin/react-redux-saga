@@ -1,18 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { reducer } from './redux/reducer/reducer';
-import { watchFetchDog } from './redux/actions/actionCreators';
-
-import { Provider, connect } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { connect, Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
+import App from './App';
+import './index.css';
+import { watchFetchDog } from './redux/actions/actionCreators';
+import { reducer } from './redux/reducer/reducer';
+import * as serviceWorker from './serviceWorker';
 
 // Store
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
 sagaMiddleware.run(watchFetchDog);
 
 const ConnectedApp = connect(state => {
