@@ -6,7 +6,11 @@ export const requestDog = () => {
 };
 
 export const requestDogSuccess = data => {
-  return { type: TYPES.REQUESTED_DOG_SUCCEEDED, url: data.message };
+  return {
+    type: TYPES.REQUESTED_DOG_SUCCEEDED,
+    url: data.message,
+    message: 'Fetching is successfull'
+  };
 };
 
 export const requestDogError = () => {
