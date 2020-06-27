@@ -2,7 +2,8 @@
 const initialState = {
   url: '',
   loading: false,
-  error: false
+  error: false,
+  status: ''
 };
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,7 +17,8 @@ export const reducer = (state = initialState, action) => {
       return {
         url: action.url,
         loading: false,
-        error: false
+        error: false,
+        status: action.status
       };
     case 'REQUESTED_DOG_FAILED':
       return {

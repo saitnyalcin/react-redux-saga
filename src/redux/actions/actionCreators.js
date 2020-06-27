@@ -9,7 +9,8 @@ export const requestDogSuccess = data => {
   return {
     type: TYPES.REQUESTED_DOG_SUCCEEDED,
     url: data.message,
-    message: 'Fetching is successfull'
+    error: '',
+    status: data.status
   };
 };
 

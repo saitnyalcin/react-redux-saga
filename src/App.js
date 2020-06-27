@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
 import './App.css';
+import logo from './logo.svg';
 import { fetchDog } from './redux/actions/actionCreators';
 
 class App extends Component {
@@ -18,9 +19,7 @@ class App extends Component {
         </header>
 
         <div>
-          <button onClick={() => this.props.dispatch(fetchDog())}>
-            Show Dog
-          </button>
+          <button onClick={() => this.props.loadDogImg()}>Show Dog</button>
           {this.props.loading ? (
             <p>Loading...</p>
           ) : this.props.error ? (
@@ -36,4 +35,19 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    url: state.url
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadDogImg: () => {
+      // dispatch({ type: TYPES.FETCHED_DOG });
+      dispatch(fetchDog());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
