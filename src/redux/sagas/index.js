@@ -15,8 +15,11 @@ function* watchFetchDog() {
   yield takeEvery(TYPES.FETCHED_DOG, fetchDogAsync);
 }
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 // Worker saga
-function* fetchDogAsync() {
+export function* fetchDogAsync() {
+  yield delay(1000);
   try {
     yield put(requestDog());
     const data = yield call(() => {
@@ -25,7 +28,6 @@ function* fetchDogAsync() {
       );
     });
     yield put(requestDogSuccess(data));
-    console.log(data.status);
   } catch (error) {
     yield put(requestDogError());
   }
