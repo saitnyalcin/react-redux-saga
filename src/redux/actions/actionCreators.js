@@ -1,16 +1,16 @@
-import { TYPES } from '../types';
+import { TYPES } from "../types";
 
 // Action Creators
 export const requestDog = () => {
   return { type: TYPES.REQUESTED_DOG };
 };
 
-export const requestDogSuccess = data => {
+export const requestDogSuccess = (data) => {
   return {
     type: TYPES.REQUESTED_DOG_SUCCEEDED,
     url: data.message,
-    error: '',
-    status: data.status
+    error: "",
+    status: data.status,
   };
 };
 

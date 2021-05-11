@@ -1,30 +1,31 @@
 // Reducer
 const initialState = {
-  url: '',
+  url: "",
   loading: false,
   error: false,
-  status: ''
+  status: "",
 };
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'REQUESTED_DOG':
+    case "REQUESTED_DOG":
       return {
-        url: '',
+        url: "",
         loading: true,
-        error: false
+        error: false,
       };
-    case 'REQUESTED_DOG_SUCCEEDED':
+    case "REQUESTED_DOG_SUCCEEDED":
       return {
         url: action.url,
         loading: false,
         error: false,
-        status: action.status
+        status: action.status,
       };
-    case 'REQUESTED_DOG_FAILED':
+    case "REQUESTED_DOG_FAILED":
       return {
-        url: '',
+        url: "",
         loading: false,
-        error: true
+        error: true,
       };
     default:
       return state;
