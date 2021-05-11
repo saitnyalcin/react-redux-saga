@@ -19,5 +19,5 @@ export const requestDogError = () => {
 };
 
 export const fetchDog = () => {
-  return { type: TYPES.FETCHED_DOG };
+  return { type: TYPES.REQUESTED_FETCHED_DOG };
 };

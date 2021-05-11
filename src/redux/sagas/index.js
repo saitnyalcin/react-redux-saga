@@ -12,7 +12,7 @@ function* helloSaga() {
 
 // Watcher saga takes the dispatched action and calls the worker saga (fetchDogAsync)
 function* watchFetchDog() {
-  yield takeEvery(TYPES.FETCHED_DOG, fetchDogAsync);
+  yield takeEvery(TYPES.REQUESTED_FETCHED_DOG, fetchDogAsync);
 }
 
 // Create a promise to delay
